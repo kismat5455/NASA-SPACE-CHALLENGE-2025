@@ -18,5 +18,5 @@ Pillow>=10.0.0
 pymupdf>=1.24.0
 
 # Cloud Vector Storage Options
-pinecone-client>=3.0.0  # For Pinecone cloud storage
+pinecone>=3.0.0  # For Pinecone cloud storage
 llama-index-vector-stores-pinecone>=0.2.0  # LlamaIndex Pinecone integration
