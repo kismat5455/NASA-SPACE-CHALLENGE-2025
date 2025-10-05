@@ -1,30 +1,32 @@
-# 🚀 NASA Research Assistant - RAG System
+# 🚀 NASA Research Assistant
 
-A Retrieval-Augmented Generation (RAG) system for querying NASA research documents, built for NASA Space Challenge 2025.
+A Retrieval-Augmented Generation (RAG) system for querying NASA research documents.
 
 ## 🌟 Features
 
-- **Intelligent Document Search**: Query NASA research documents using natural language
-- **Powered by Google Gemini**: Uses Gemini 1.5 for both embeddings and generation
-- **LlamaIndex Framework**: Robust RAG implementation with vector search
-- **Multiple Interfaces**: 
-  - Command-line interface
-  - Interactive web UI (Streamlit)
-- **Source Citations**: View relevant document excerpts with relevance scores
-- **Easy Document Management**: Simply drop documents into the data folder
+- ☁️ **Cloud Storage**: All documents stored in Pinecone - accessible from any device
+- 🔍 **Intelligent Document Search**: Query NASA research documents using natural language
+- 🤖 **Powered by Google Gemini**: Uses Gemini 2.5 for advanced reasoning
+- 📦 **LlamaIndex Framework**: Robust RAG implementation with cloud vector search
+- 🌐 **Web Interface**: Beautiful Streamlit UI for interactive queries
+- 📊 **Source Citations**: View relevant document excerpts with relevance scores
+- 🖼️ **Multimodal Support**: Extract and analyze images from PDFs
 
 ## 🛠️ Technology Stack
 
 - **LlamaIndex**: RAG framework for document indexing and retrieval
-- **Google Gemini**: LLM for embeddings and text generation
-- **ChromaDB**: Vector database for efficient similarity search
+- **Google Gemini 2.5**: Advanced LLM for reasoning and generation
+- **Pinecone**: Cloud vector database for scalable similarity search
+- **Stella v5**: State-of-the-art local embeddings (1024 dimensions)
 - **Streamlit**: Web interface for interactive queries
-- **Python 3.8+**: Core programming language
+- **Python 3.13**: Core programming language
 
 ## 📋 Prerequisites
 
 - Python 3.8 or higher
 - Google API Key (for Gemini access)
+- Pinecone API Key (for cloud storage - free tier available)
+- LLAMA_CLOUD_API_KEY(free tier available)
 
 ## 🚀 Quick Start
 
@@ -103,15 +105,9 @@ Then open your browser to http://localhost:8501
 python query_engine.py
 ```
 
-## 💡 Usage Examples
+## 💡 Usage
 
-### Example Queries
-
-- "What are the main objectives of the Artemis mission?"
-- "Explain the James Webb Space Telescope's infrared capabilities"
-- "What are the challenges of Mars colonization?"
-- "Summarize NASA's climate research initiatives"
-- "How does the ISS maintain its orbit?"
+Simply upload your PDF documents through the web interface and start asking questions. The system will search through your documents and provide relevant answers with source citations.
 
 ## 🏗️ Project Structure
 
@@ -134,7 +130,7 @@ NASA-SPACE-CHALLENGE-2025/
 
 Edit `config.py` to customize:
 
-- **Model Selection**: Change between Gemini 1.5 Flash or Pro
+- **Model Selection**: Change models between Gemini 1.5 Flash or Pro
 - **Chunk Size**: Adjust document chunking parameters
 - **Top K Results**: Number of relevant documents to retrieve
 - **Storage Paths**: Modify data and index directories
@@ -170,37 +166,8 @@ Settings.llm = Gemini(
 )
 ```
 
-## 🐛 Troubleshooting
 
-### "No module named 'llama_index'"
 
-```bash
-pip install -r requirements.txt
-```
-
-### "API Key not found"
-
-Make sure you've created a `.env` file with your Google API key.
-
-### "No documents found"
-
-Place PDF, TXT, DOCX, or MD files in the `data/` folder and run `document_ingestion.py`.
-
-### Import Errors
-
-If you see version conflicts, try:
-
-```bash
-pip install --upgrade llama-index google-generativeai
-```
-
-## 📊 Performance Tips
-
-1. **Use Gemini 1.5 Pro** for complex research questions
-2. **Use Gemini 1.5 Flash** for faster responses on simpler queries
-3. **Adjust chunk size** based on your document types
-4. **Increase TOP_K_RESULTS** for more comprehensive answers
-5. **Pre-process PDFs** to ensure clean text extraction
 
 ## 🤝 Contributing
 
@@ -210,27 +177,10 @@ This project is for NASA Space Challenge 2025. Feel free to extend and improve i
 
 MIT License - Feel free to use and modify for your needs.
 
-## 🎯 NASA Space Challenge 2025
-
-This RAG system is designed to help researchers, scientists, and space enthusiasts access and understand NASA's vast repository of research documents efficiently.
-
-**Good luck with your NASA Space Challenge! 🚀🌙**
-
 ## 📚 Resources
 
 - [LlamaIndex Documentation](https://docs.llamaindex.ai/)
 - [Google Gemini API](https://ai.google.dev/)
 - [NASA Open Data Portal](https://data.nasa.gov/)
 - [Streamlit Documentation](https://docs.streamlit.io/)
-
-## 🆘 Support
-
-For issues or questions:
-1. Check the troubleshooting section
-2. Review the LlamaIndex and Gemini documentation
-3. Check your API key and quota limits
-
----
-
-Built with ❤️ for NASA Space Challenge 2025
 
