@@ -9,8 +9,11 @@ __pycache__/
 data/
 vector_store/
 *.pdf
-*.txt
 *.csv
+
+# Allow requirements.txt and other important txt files
+!requirements.txt
+!env_template.txt
 
 # IDE
 .vscode/
