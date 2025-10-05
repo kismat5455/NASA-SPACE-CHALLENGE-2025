@@ -1,0 +1,22 @@
+# Environment
+.env
+venv/
+env/
+*.pyc
+__pycache__/
+
+# Data
+data/
+vector_store/
+*.pdf
+*.txt
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Logs
+*.log
+
