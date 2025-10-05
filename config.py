@@ -7,10 +7,18 @@ from dotenv import load_dotenv
 # Load environment variables
 load_dotenv()
 
-# API Configuration
-GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY")
-LLAMA_CLOUD_API_KEY = os.getenv("LLAMA_CLOUD_API_KEY")  # For LlamaParse
-PINECONE_API_KEY = os.getenv("PINECONE_API_KEY")  # For cloud vector storage
+# Try to import streamlit for cloud deployment
+try:
+    import streamlit as st
+    # On Streamlit Cloud, use st.secrets
+    GOOGLE_API_KEY = st.secrets.get("GOOGLE_API_KEY", os.getenv("GOOGLE_API_KEY"))
+    LLAMA_CLOUD_API_KEY = st.secrets.get("LLAMA_CLOUD_API_KEY", os.getenv("LLAMA_CLOUD_API_KEY"))
+    PINECONE_API_KEY = st.secrets.get("PINECONE_API_KEY", os.getenv("PINECONE_API_KEY"))
+except (ImportError, FileNotFoundError):
+    # Local development, use .env file
+    GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY")
+    LLAMA_CLOUD_API_KEY = os.getenv("LLAMA_CLOUD_API_KEY")
+    PINECONE_API_KEY = os.getenv("PINECONE_API_KEY")
 
 # Model Configuration
 GEMINI_MODEL = "gemini-2.5-pro"  # Primary model: Gemini 2.0 Flash (fast, experimental)
