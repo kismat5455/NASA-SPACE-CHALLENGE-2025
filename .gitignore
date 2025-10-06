@@ -15,6 +15,9 @@ vector_store/
 !requirements.txt
 !env_template.txt
 
+# Allow document metadata file (stores URLs for sources)
+!.document_metadata.json
+
 # IDE
 .vscode/
 .idea/

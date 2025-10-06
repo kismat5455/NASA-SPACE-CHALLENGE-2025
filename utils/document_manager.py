@@ -29,7 +29,8 @@ def load_document_metadata():
     Returns:
         Dictionary with document metadata (filename, URL, upload date, etc.)
     """
-    metadata_file = Path(config.DATA_DIR) / ".document_metadata.json"
+    # Store metadata in project root so it's tracked by Git (not in data/)
+    metadata_file = Path(".document_metadata.json")
     
     try:
         if metadata_file.exists():
@@ -49,7 +50,8 @@ def save_document_metadata(metadata_dict):
     Args:
         metadata_dict: The metadata dictionary to save
     """
-    metadata_file = Path(config.DATA_DIR) / ".document_metadata.json"
+    # Store metadata in project root so it's tracked by Git (not in data/)
+    metadata_file = Path(".document_metadata.json")
     
     try:
         with open(metadata_file, 'w', encoding='utf-8') as f:
