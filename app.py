@@ -300,18 +300,19 @@ def main():
                             if filename not in unique_sources:
                                 unique_sources[filename] = True
                         
-                        # Display sources
-                        for filename in unique_sources.keys():
+                        # Display sources with numbered citations like [1], [2], etc.
+                        for idx, filename in enumerate(unique_sources.keys(), 1):
                             doc_url = None
                             for hash_val, meta in metadata.items():
                                 if meta.get('filename') == filename:
                                     doc_url = meta.get('url')
                                     break
                             
+                            # Display with numbered citation and clickable link (just the URL)
                             if doc_url:
-                                st.caption(f"• [{filename}]({doc_url})")
+                                st.markdown(f"[{idx}] [{doc_url}]({doc_url})")
                             else:
-                                st.caption(f"• {filename}")
+                                st.markdown(f"[{idx}] {filename}")
                 
                 # Add assistant message to chat history (using our utility function!)
                 add_message(

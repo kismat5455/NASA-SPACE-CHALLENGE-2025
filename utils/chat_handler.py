@@ -101,8 +101,8 @@ def _display_sources(message, content):
         if filename not in unique_sources:
             unique_sources[filename] = True
     
-    # Show each source with link if available
-    for filename in unique_sources.keys():
+    # Show each source with link if available, numbered like [1], [2], etc.
+    for idx, filename in enumerate(unique_sources.keys(), 1):
         doc_url = None
         
         # Find the URL for this document
@@ -111,11 +111,11 @@ def _display_sources(message, content):
                 doc_url = meta.get('url')
                 break
         
-        # Display with or without link
+        # Display with numbered citation and clickable link (just the URL)
         if doc_url:
-            st.caption(f"• [{filename}]({doc_url})")
+            st.markdown(f"[{idx}] [{doc_url}]({doc_url})")
         else:
-            st.caption(f"• {filename}")
+            st.markdown(f"[{idx}] {filename}")
 
 
 def display_chat_history():
